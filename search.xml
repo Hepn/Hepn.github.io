@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Markdown语法笔记</title>
-    <url>/2019/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/</url>
+    <title>Markdown笔记</title>
+    <url>/2019/12/31/Markdown%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h2><h3 id="1-语法格式"><a href="#1-语法格式" class="headerlink" title="(1)语法格式"></a>(1)语法格式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">#(空格)一级标题</span></span><br><span class="line"><span class="section">##(空格)二级标题</span></span><br><span class="line"><span class="section">###(空格)三级标题</span></span><br><span class="line"><span class="section">####(空格)四级标题</span></span><br><span class="line"><span class="section">#####(空格)五级标题</span></span><br><span class="line"><span class="section">######(空格)六级标题</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="2-效果图"><a href="#2-效果图" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><img src="/2019/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/markdown_01.png" style="zoom:50%;">
+<h3 id="2-效果图"><a href="#2-效果图" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><img src="/2019/12/31/Markdown%E7%AC%94%E8%AE%B0/markdown_01.png" style="zoom:50%;">
 
 <a id="more"></a>
 
@@ -29,7 +29,7 @@
 <hr>
 <h2 id="5-图片插入"><a href="#5-图片插入" class="headerlink" title="5.图片插入"></a>5.图片插入</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">!(我的照片)[图片路径]</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2019/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/markdown_02.png" alt></p>
+<p><img src="/2019/12/31/Markdown%E7%AC%94%E8%AE%B0/markdown_02.png" alt></p>
 <h2 id="6-超链接"><a href="#6-超链接" class="headerlink" title="6.超链接"></a>6.超链接</h2><h3 id="1-语法格式-4"><a href="#1-语法格式-4" class="headerlink" title="(1)语法格式"></a>(1)语法格式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[链接名称]（链接地址）</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-效果图-4"><a href="#2-效果图-4" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><p><a href="https://www.baidu.com" target="_blank" rel="noopener">百度一下</a></p>
@@ -82,6 +82,7 @@
       <tags>
         <tag>Markdown</tag>
         <tag>基本语法</tag>
+        <tag>个人学习笔记</tag>
       </tags>
   </entry>
 </search>
