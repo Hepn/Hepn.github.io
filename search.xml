@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Markdown语法笔记</title>
+    <url>/2019/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1.标题"></a>1.标题</h2><h3 id="1-语法格式"><a href="#1-语法格式" class="headerlink" title="(1)语法格式"></a>(1)语法格式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">#(空格)一级标题</span></span><br><span class="line"><span class="section">##(空格)二级标题</span></span><br><span class="line"><span class="section">###(空格)三级标题</span></span><br><span class="line"><span class="section">####(空格)四级标题</span></span><br><span class="line"><span class="section">#####(空格)五级标题</span></span><br><span class="line"><span class="section">######(空格)六级标题</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-效果图"><a href="#2-效果图" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><img src="/2019/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/markdown_01.png" style="zoom:50%;">
+
+<a id="more"></a>
+
+<h2 id="2-字体样式"><a href="#2-字体样式" class="headerlink" title="2.字体样式"></a>2.字体样式</h2><h3 id="1-语法格式-1"><a href="#1-语法格式-1" class="headerlink" title="(1)语法格式"></a>(1)语法格式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**加粗的语言**</span></span><br><span class="line">~~被删除的文字~~</span><br><span class="line"><span class="emphasis">*斜体内容*</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-效果图-1"><a href="#2-效果图-1" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><p><strong>加粗的语言</strong><br><del>被删除的文字</del><br><em>斜体内容*</em></p>
+<h2 id="3-引用"><a href="#3-引用" class="headerlink" title="3.引用"></a>3.引用</h2><h3 id="1-语法格式-2"><a href="#1-语法格式-2" class="headerlink" title="(1)语法格式"></a>(1)语法格式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&gt;一级引用</span><br><span class="line">&gt;&gt;二级引用</span><br><span class="line">&gt;&gt;&gt;三级引用</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-效果图-2"><a href="#2-效果图-2" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><blockquote>
+<p>一级引用</p>
+<blockquote>
+<p>二级引用</p>
+<blockquote>
+<p>三级引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="4-分割线"><a href="#4-分割线" class="headerlink" title="4.分割线"></a>4.分割线</h2><h3 id="1-语法格式-3"><a href="#1-语法格式-3" class="headerlink" title="(1)语法格式"></a>(1)语法格式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---分割线1</span><br><span class="line"><span class="emphasis">***</span>分割线2</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-效果图-3"><a href="#2-效果图-3" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><hr>
+<hr>
+<h2 id="5-图片插入"><a href="#5-图片插入" class="headerlink" title="5.图片插入"></a>5.图片插入</h2><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">!(我的照片)[图片路径]</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2019/12/31/Markdown%E8%AF%AD%E6%B3%95%E7%AC%94%E8%AE%B0/markdown_02.png" alt></p>
+<h2 id="6-超链接"><a href="#6-超链接" class="headerlink" title="6.超链接"></a>6.超链接</h2><h3 id="1-语法格式-4"><a href="#1-语法格式-4" class="headerlink" title="(1)语法格式"></a>(1)语法格式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">[链接名称]（链接地址）</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-效果图-4"><a href="#2-效果图-4" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><p><a href="https://www.baidu.com" target="_blank" rel="noopener">百度一下</a></p>
+<h2 id="7-代码块"><a href="#7-代码块" class="headerlink" title="7.代码块"></a>7.代码块</h2><h3 id="1-语法格式-5"><a href="#1-语法格式-5" class="headerlink" title="(1)语法格式"></a>(1)语法格式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">​<span class="code">```</span>代码语言（java）</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-效果图-5"><a href="#2-效果图-5" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestBody;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"><span class="keyword">import</span> com.cetccity.se.school.operation.center.api.EventApi;</span><br><span class="line"><span class="keyword">import</span> com.cetccity.se.school.operation.center.service.EventService;</span><br><span class="line"><span class="keyword">import</span> com.cetccity.common.base.util.BeanUtil;</span><br><span class="line"><span class="keyword">import</span> com.cetccity.se.school.operation.center.vo.EventVo;</span><br><span class="line"><span class="keyword">import</span> com.cetccity.se.school.operation.center.vo.ResponseVo;</span><br><span class="line"><span class="keyword">import</span> com.cetccity.se.school.operation.center.vo.SelectValueVo;</span><br><span class="line"><span class="keyword">import</span> com.cetccity.common.base.vo.PageVo;</span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EventController</span> <span class="keyword">implements</span> <span class="title">EventApi</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	EventService eventService;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> PageVo&lt;EventVo&gt; <span class="title">queryEvent</span><span class="params">(@RequestBody(required=<span class="keyword">false</span>)</span> EventVo vo)</span>&#123;</span><br><span class="line">		List&lt;EventVo&gt; list = eventService.queryEvent(vo);</span><br><span class="line">		<span class="keyword">return</span> BeanUtil.page(list);	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">addEvent</span><span class="params">(@RequestBody EventVo vo)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> eventService.addEvent(vo);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> EventVo <span class="title">findEventById</span><span class="params">(@RequestParam(<span class="string">"id"</span>)</span> Long id)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> eventService.findEventById(id);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateEventById</span><span class="params">(@RequestBody EventVo vo)</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> eventService.updateEventById(vo);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">delEventById</span><span class="params">(@RequestParam(<span class="string">"id"</span>)</span> Long id)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> eventService.delEventById(id);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-列表"><a href="#8-列表" class="headerlink" title="8.列表"></a>8.列表</h2><h3 id="1-语法格式-6"><a href="#1-语法格式-6" class="headerlink" title="(1)语法格式"></a>(1)语法格式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">-(空格)无序列表目录1</span><br><span class="line"> -(空格)无序列表目录2</span><br><span class="line">  -(空格)无序列表目录3</span><br><span class="line"></span><br><span class="line">1.有序列表目录1</span><br><span class="line">2.有序列表目录2</span><br><span class="line">3.有序列表目录3</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-效果图-6"><a href="#2-效果图-6" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><ul>
+<li>无序列表目录1<ul>
+<li>无序列表目录2<ul>
+<li>无序列表目录3</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>1.有序列表目录1<br>2.有序列表目录2<br>3.有序列表目录3</p>
+<h2 id="9-表格"><a href="#9-表格" class="headerlink" title="9.表格"></a>9.表格</h2><h3 id="1-语法格式-7"><a href="#1-语法格式-7" class="headerlink" title="(1)语法格式"></a>(1)语法格式</h3><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">| 姓名 | 学号 | 成绩 |</span><br><span class="line">| :--: | :--: | :--: |</span><br><span class="line">|      |      |      |</span><br><span class="line">|      |      |      |</span><br><span class="line">|      |      |      |</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-效果图-7"><a href="#2-效果图-7" class="headerlink" title="(2)效果图"></a>(2)效果图</h3><table>
+<thead>
+<tr>
+<th align="center">姓名</th>
+<th align="center">学号</th>
+<th align="center">成绩</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>Markdown</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
+        <tag>基本语法</tag>
+      </tags>
+  </entry>
+</search>
