@@ -67,7 +67,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="https://hepn.github.io/about/" data-id="ck53o0smn0001okwi4ldv8pe1"
+      <a data-url="https://hepn.github.io/about/" data-id="ck53p1zb60001f4wigrbchzq3"
         class="article-share-link">分享一下</a>
       
     </footer>
@@ -293,8 +293,10 @@
   
   
   </div>
+  {% if theme.fireworks %}
   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
-  <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  <script type="text/javascript" src="/js/fireworks.js"></script>
+{% endif %}
 </body>
 </html>
