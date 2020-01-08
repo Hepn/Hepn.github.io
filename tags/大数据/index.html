@@ -122,8 +122,8 @@
         
         
         <ul class="list-inline">
-  <li>PV:<span id="busuanzi_value_page_pv"></span></li>
-  <li>UV:<span id="busuanzi_value_site_uv"></span></li>
+  <li>总共<span id="busuanzi_value_site_pv"></span>人次访问.</li>
+  <li>您是Hepn Blog的第<span id="busuanzi_value_site_uv"></span>个小伙伴</span></li>
 </ul>
         
       </li>
@@ -261,10 +261,27 @@
   
   
   </div>
-  {% if theme.fireworks %}
+       <!--代码雨-->
+ 
+  <!-- 数字雨 -->
+  <canvas id="code_rain_canvas" width="1440" height="900"></canvas>
+  <script type="text/javascript" src="/js/code_rain.js">
+    <style>
+        #code_rain_canvas {
+          position: fixed;
+          right: 0px;
+          bottom: 0px;
+          min-width: 100%;
+          min-height: 100%;
+          height: auto;
+          width: auto;
+          z-index: 4;
+        }
+    </style>
+</script>
+
   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
   <script type="text/javascript" src="/js/fireworks.js"></script>
-{% endif %}
 </body>
 </html>
