@@ -25,7 +25,6 @@
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 </html>
-
 <body>
   <div id="app">
     <main class="content">
@@ -142,7 +141,7 @@
   
 </section>
       
-        <canvas id="code_rain_canvas" width="1440" height="300"></canvas>
+        <canvas id="code_rain_canvas" width="1440" height="200"></canvas>
         <script type="text/javascript" src="/js/code_rain.js">
         <style>
           #code_rain_canvas {
@@ -163,7 +162,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019-2020
+        2020
         Hep
       </li>
       <li>
@@ -172,10 +171,27 @@
     </ul>
     <ul class="list-inline">
       <li>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+        var now = new Date(); 
+        function createtime() { 
+        var grt= new Date("01/02/2020 13:16:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已经存活了 "+dnum+" 天"; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 " + "……\(> <)/"; 
+         } 
+        setInterval("createtime()",250);
+        </script>
         
         
         <ul class="list-inline">
-  <li>总共 <span id="busuanzi_value_site_pv"></span>人次访问.</li>
+  <li>总共有 <span id="busuanzi_value_site_pv"></span>人次访问.</li>
   <li>您是Hepn Blog的第 <span id="busuanzi_value_site_uv"></span>个小伙伴</span></li>
 </ul>
         
@@ -219,10 +235,6 @@
     
     <li class="nav-item">
       <a class="nav-item-link" href="/tags">标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
     </li>
     
     <li class="nav-item">

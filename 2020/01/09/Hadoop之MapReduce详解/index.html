@@ -25,7 +25,6 @@
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 </html>
-
 <body>
   <div id="app">
     <main class="content">
@@ -55,6 +54,23 @@
     <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
   </div>
 
+      <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  本篇文章共有 </span>
+        <span class="post-count">1.9k字</span>
+      </span>
+    </span>
+    &nbsp; | &nbsp;
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长大约 </span>
+        <span class="post-count">8分钟~</span>
+      </span>
+    </span>
+</div>
     </div>
     
 
@@ -83,7 +99,7 @@
 <h4 id="1-2-2缺点"><a href="#1-2-2缺点" class="headerlink" title="1.2.2缺点"></a>1.2.2缺点</h4><h5 id="1-不擅长实时计算"><a href="#1-不擅长实时计算" class="headerlink" title="1.不擅长实时计算"></a>1.不擅长实时计算</h5><p>MapReduce无法像MySQL一样，在毫秒或者秒级内返回结果。</p>
 <h5 id="2-不擅长流式计算"><a href="#2-不擅长流式计算" class="headerlink" title="2.不擅长流式计算"></a>2.不擅长流式计算</h5><p>流式计算的输入数据是动态的，而MapReduce的<strong>输入数据集是静态的</strong>，不能动态变化。这是因为MapReduce自身的设计特点决定了数据源必须是静态的。</p>
 <h5 id="3-不擅长DAG（有向图）计算"><a href="#3-不擅长DAG（有向图）计算" class="headerlink" title="3.不擅长DAG（有向图）计算"></a>3.不擅长DAG（有向图）计算</h5><p>多个应用程序存在依赖关系，后一个应用程序的输入为前一个的输出。在这种情况下，MapReduce并不是不能做，而是使用后，<strong>每个MapReduce作业的输出结果都会写入到磁盘，会造成大量的磁盘IO</strong>，导致性能非常的低下</p>
-<h3 id="1-3-MapReduce核心思想"><a href="#1-3-MapReduce核心思想" class="headerlink" title="1.3 MapReduce核心思想"></a>1.3 MapReduce核心思想</h3><p><img src="/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/E:%5Cblog%5Csource_posts%5CHadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3%5C01.png" alt></p>
+<h3 id="1-3-MapReduce核心思想"><a href="#1-3-MapReduce核心思想" class="headerlink" title="1.3 MapReduce核心思想"></a>1.3 MapReduce核心思想</h3><p><img src="/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/01.png" alt></p>
 <ol>
 <li>分布式的运算程序往往需要分成至少2个阶段。</li>
 <li>第一个阶段的MapTask并发实例，完全并行运行，互不相干。</li>
@@ -165,14 +181,29 @@
 <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">log4j.rootLogger</span>=<span class="string">INFO, stdout</span></span><br><span class="line"><span class="meta">log4j.appender.stdout</span>=<span class="string">org.apache.log4j.ConsoleAppender</span></span><br><span class="line"><span class="meta">log4j.appender.stdout.layout</span>=<span class="string">org.apache.log4j.PatternLayout</span></span><br><span class="line"><span class="meta">log4j.appender.stdout.layout.ConversionPattern</span>=<span class="string">%d %p [%c] - %m%n</span></span><br><span class="line"><span class="meta">log4j.appender.logfile</span>=<span class="string">org.apache.log4j.FileAppender</span></span><br><span class="line"><span class="meta">log4j.appender.logfile.File</span>=<span class="string">target/spring.log</span></span><br><span class="line"><span class="meta">log4j.appender.logfile.layout</span>=<span class="string">org.apache.log4j.PatternLayout</span></span><br><span class="line"><span class="meta">log4j.appender.logfile.layout.ConversionPattern</span>=<span class="string">%d %p [%c] - %m%n</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="1-7-4-编写程序"><a href="#1-7-4-编写程序" class="headerlink" title="1.7.4 编写程序"></a>1.7.4 编写程序</h4><p><strong>（1）编写Mapper类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hp.wordcount;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.LongWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WcReducer</span> <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">LongWritable</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Text word = <span class="keyword">new</span> Text();</span><br><span class="line">    <span class="keyword">private</span> IntWritable one = <span class="keyword">new</span> IntWritable(<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span><span class="comment">//(此处重写map函数可以按 ctrl+o 然后选择map)</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(LongWritable key, Text value, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">        <span class="comment">//拿到这一行数据</span></span><br><span class="line">        String line = value.toString();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//按照空格切分数据</span></span><br><span class="line">        String[] words = line.split(<span class="string">" "</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//遍历数组，把单词变成（word,1)的形式交给框架环境</span></span><br><span class="line">        <span class="keyword">for</span>(String word :words)&#123;</span><br><span class="line">            <span class="keyword">this</span>.word.set(word);</span><br><span class="line">            context.write(<span class="keyword">this</span>.word,<span class="keyword">this</span>.one);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hp.wordcount;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.LongWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WcMapper</span>  <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">LongWritable</span>, <span class="title">Text</span>, <span class="title">Text</span>,<span class="title">IntWritable</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Text word = <span class="keyword">new</span> Text();</span><br><span class="line">    <span class="keyword">private</span> IntWritable one = <span class="keyword">new</span> IntWritable(<span class="number">1</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span> <span class="comment">//(此处重写map函数可以按 ctrl+o 然后选择map)</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(LongWritable key, Text value, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">            <span class="comment">//拿到这一行数据</span></span><br><span class="line">            String line = value.toString();</span><br><span class="line">            <span class="comment">//按照空格切分数据</span></span><br><span class="line">            String[] words = line.split(<span class="string">" "</span>);</span><br><span class="line">            <span class="comment">//遍历数组，把单词变成（word,1)的形式交给框架</span></span><br><span class="line">            <span class="keyword">for</span>(String word :words) &#123;</span><br><span class="line">                <span class="keyword">this</span>.word.set(word);</span><br><span class="line">                context.write(<span class="keyword">this</span>.word, <span class="keyword">this</span>.one);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>个人笔记：Mapper&lt;LongWritable, Text, Text, IntWritable&gt;中LongWritable表示取一行数据的偏移量</p>
 <p>Text是单词文本，IntWritable是用于计数的one,contex表示当前框架环境，用于将map结果返回。</p>
 </blockquote>
 <p><strong>（2）编写Reducer类</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hp.wordcount;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WcMapper</span>  <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>, <span class="title">IntWritable</span>, <span class="title">Text</span>,<span class="title">IntWritable</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> IntWritable total = <span class="keyword">new</span> IntWritable();</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.reduce(key, values, context);</span><br><span class="line">       <span class="comment">//做累加</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(IntWritable value : values) &#123;</span><br><span class="line">            sum += value.get();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//包装结果并输出</span></span><br><span class="line">        total.set(sum);</span><br><span class="line">        context.write(key,total);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hp.wordcount;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WcReducer</span> <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>, <span class="title">IntWritable</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntWritable total = <span class="keyword">new</span> IntWritable();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values, Context context)</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">        <span class="comment">//做累加</span></span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(IntWritable value : values) &#123;</span><br><span class="line">            sum += value.get();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//包装结果并输出</span></span><br><span class="line">        total.set(sum);</span><br><span class="line">        context.write(key,total);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>（3）编写Driver驱动类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.hp.wordcount;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WcDriver</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException, InterruptedException </span>&#123;</span><br><span class="line">        <span class="comment">//1.获取一个Job实例</span></span><br><span class="line">        Job job = Job.getInstance(<span class="keyword">new</span> Configuration());</span><br><span class="line">        <span class="comment">//2.设置类路径（classpath）</span></span><br><span class="line">        job.setJarByClass(WcDriver<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        <span class="comment">//3.设置Mapper和Reducer</span></span><br><span class="line">        job.setMapperClass(WcMapper<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        job.setReducerClass(WcReducer<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        <span class="comment">//4.设置Mapper和Reducer输出的类型</span></span><br><span class="line">        job.setMapOutputKeyClass(Text<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        job.setMapOutputValueClass(IntWritable<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        job.setOutputKeyClass(Text<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        job.setOutputValueClass(IntWritable<span class="class">.<span class="keyword">class</span>)</span>;</span><br><span class="line">        <span class="comment">//5.设置输入输出数据</span></span><br><span class="line">        FileInputFormat.setInputPaths(job, <span class="keyword">new</span> Path(args[<span class="number">0</span>]));</span><br><span class="line">        FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> Path(args[<span class="number">1</span>]));</span><br><span class="line">        <span class="comment">//6.提交Job</span></span><br><span class="line">        <span class="keyword">boolean</span> b = job.waitForCompletion(<span class="keyword">true</span>);</span><br><span class="line">        System.exit(b ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-7-5编译运行测试"><a href="#1-7-5编译运行测试" class="headerlink" title="1.7.5编译运行测试"></a>1.7.5编译运行测试</h4><p><img src="/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3%5C04.png" alt></p>
+<blockquote>
+<p>注意：输出文件夹一定是不存在的文件夹</p>
+</blockquote>
+<p><img src="/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3%5C05.png" alt></p>
+<p><img src="/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3%5C06.png" alt></p>
+<h4 id="1-7-6集群上测试"><a href="#1-7-6集群上测试" class="headerlink" title="1.7.6集群上测试"></a>1.7.6集群上测试</h4><p>（1）用maven工具生成jar包</p>
+<p><img src="/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3%5C07.png" alt></p>
+<p>（2）将jar包放到集群当中</p>
+<p><img src="/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3%5C08.png" alt></p>
+
       
       <!-- 打赏 -->
       
@@ -182,7 +213,7 @@
         
     </div>
     <footer class="article-footer">
-      <a data-url="https://hepn.github.io/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/" data-id="ck5brh0bw000dbgwifq3a49fg"
+      <a data-url="https://hepn.github.io/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/" data-id="ck5dpr19k000084wi87ct602n"
         class="article-share-link">分享一下</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MapReduce/" rel="tag">MapReduce</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">个人学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
@@ -267,7 +298,7 @@
 </article>
 </section>
       
-        <canvas id="code_rain_canvas" width="1440" height="300"></canvas>
+        <canvas id="code_rain_canvas" width="1440" height="200"></canvas>
         <script type="text/javascript" src="/js/code_rain.js">
         <style>
           #code_rain_canvas {
@@ -288,7 +319,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019-2020
+        2020
         Hep
       </li>
       <li>
@@ -297,10 +328,27 @@
     </ul>
     <ul class="list-inline">
       <li>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+        var now = new Date(); 
+        function createtime() { 
+        var grt= new Date("01/02/2020 13:16:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已经存活了 "+dnum+" 天"; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 " + "……\(> <)/"; 
+         } 
+        setInterval("createtime()",250);
+        </script>
         
         
         <ul class="list-inline">
-  <li>总共 <span id="busuanzi_value_site_pv"></span>人次访问.</li>
+  <li>总共有 <span id="busuanzi_value_site_pv"></span>人次访问.</li>
   <li>您是Hepn Blog的第 <span id="busuanzi_value_site_uv"></span>个小伙伴</span></li>
 </ul>
         
@@ -344,10 +392,6 @@
     
     <li class="nav-item">
       <a class="nav-item-link" href="/tags">标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
     </li>
     
     <li class="nav-item">

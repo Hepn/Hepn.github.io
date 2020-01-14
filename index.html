@@ -25,7 +25,6 @@
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 </html>
-
 <body>
   <div id="app">
     <main class="content">
@@ -84,6 +83,23 @@
     <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
   </div>
 
+      <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  本篇文章共有 </span>
+        <span class="post-count">1.9k字</span>
+      </span>
+    </span>
+    &nbsp; | &nbsp;
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长大约 </span>
+        <span class="post-count">8分钟~</span>
+      </span>
+    </span>
+</div>
     </div>
     
 
@@ -104,7 +120,7 @@
 <h4 id="1-2-2缺点"><a href="#1-2-2缺点" class="headerlink" title="1.2.2缺点"></a>1.2.2缺点</h4><h5 id="1-不擅长实时计算"><a href="#1-不擅长实时计算" class="headerlink" title="1.不擅长实时计算"></a>1.不擅长实时计算</h5><p>MapReduce无法像MySQL一样，在毫秒或者秒级内返回结果。</p>
 <h5 id="2-不擅长流式计算"><a href="#2-不擅长流式计算" class="headerlink" title="2.不擅长流式计算"></a>2.不擅长流式计算</h5><p>流式计算的输入数据是动态的，而MapReduce的<strong>输入数据集是静态的</strong>，不能动态变化。这是因为MapReduce自身的设计特点决定了数据源必须是静态的。</p>
 <h5 id="3-不擅长DAG（有向图）计算"><a href="#3-不擅长DAG（有向图）计算" class="headerlink" title="3.不擅长DAG（有向图）计算"></a>3.不擅长DAG（有向图）计算</h5><p>多个应用程序存在依赖关系，后一个应用程序的输入为前一个的输出。在这种情况下，MapReduce并不是不能做，而是使用后，<strong>每个MapReduce作业的输出结果都会写入到磁盘，会造成大量的磁盘IO</strong>，导致性能非常的低下</p>
-<h3 id="1-3-MapReduce核心思想"><a href="#1-3-MapReduce核心思想" class="headerlink" title="1.3 MapReduce核心思想"></a>1.3 MapReduce核心思想</h3><p><img src="/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/E:%5Cblog%5Csource_posts%5CHadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3%5C01.png" alt></p>
+<h3 id="1-3-MapReduce核心思想"><a href="#1-3-MapReduce核心思想" class="headerlink" title="1.3 MapReduce核心思想"></a>1.3 MapReduce核心思想</h3><p><img src="/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/01.png" alt></p>
 <ol>
 <li>分布式的运算程序往往需要分成至少2个阶段。</li>
 <li>第一个阶段的MapTask并发实例，完全并行运行，互不相干。</li>
@@ -119,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hepn.github.io/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/" data-id="ck5brh0bw000dbgwifq3a49fg"
+      <a data-url="https://hepn.github.io/2020/01/09/Hadoop%E4%B9%8BMapReduce%E8%AF%A6%E8%A7%A3/" data-id="ck5dpr19k000084wi87ct602n"
         class="article-share-link">分享一下</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MapReduce/" rel="tag">MapReduce</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">个人学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
@@ -165,6 +181,23 @@
     <a class="article-category-link" href="/categories/Hadoop/">Hadoop</a>
   </div>
 
+      <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  本篇文章共有 </span>
+        <span class="post-count">7k字</span>
+      </span>
+    </span>
+    &nbsp; | &nbsp;
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长大约 </span>
+        <span class="post-count">31分钟~</span>
+      </span>
+    </span>
+</div>
     </div>
     
 
@@ -191,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hepn.github.io/2020/01/08/Hadoop%E4%B9%8BHDFS%E8%AF%A6%E8%A7%A3/" data-id="ck5brh0ac0000bgwi8fkz2ee6"
+      <a data-url="https://hepn.github.io/2020/01/08/Hadoop%E4%B9%8BHDFS%E8%AF%A6%E8%A7%A3/" data-id="ck5dpr19z000284wi8ipn2g4c"
         class="article-share-link">分享一下</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HDFS/" rel="tag">HDFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">个人学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
@@ -237,6 +270,23 @@
     <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
   </div>
 
+      <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  本篇文章共有 </span>
+        <span class="post-count">1.1k字</span>
+      </span>
+    </span>
+    &nbsp; | &nbsp;
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长大约 </span>
+        <span class="post-count">5分钟~</span>
+      </span>
+    </span>
+</div>
     </div>
     
 
@@ -264,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hepn.github.io/2020/01/07/%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%9A%84%E9%9B%86%E7%BE%A4/" data-id="ck5brh0c7000jbgwi9xtlebr2"
+      <a data-url="https://hepn.github.io/2020/01/07/%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%9A%84%E9%9B%86%E7%BE%A4/" data-id="ck5dpr1a9000984wic0efefx8"
         class="article-share-link">分享一下</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">个人学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" rel="tag">虚拟机</a></li></ul>
@@ -310,6 +360,23 @@
     <a class="article-category-link" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a>
   </div>
 
+      <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  本篇文章共有 </span>
+        <span class="post-count">1.6k字</span>
+      </span>
+    </span>
+    &nbsp; | &nbsp;
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长大约 </span>
+        <span class="post-count">5分钟~</span>
+      </span>
+    </span>
+</div>
     </div>
     
 
@@ -333,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hepn.github.io/2020/01/02/%E4%BB%8EHadoop%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%94%9F%E6%80%81/" data-id="ck5brh0c2000hbgwi6iv54ip4"
+      <a data-url="https://hepn.github.io/2020/01/02/%E4%BB%8EHadoop%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%94%9F%E6%80%81/" data-id="ck5dpr1a7000884wi1bteewt9"
         class="article-share-link">分享一下</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hadoop/" rel="tag">Hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">个人学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li></ul>
@@ -379,6 +446,23 @@
     <a class="article-category-link" href="/categories/Markdown/">Markdown</a>
   </div>
 
+      <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  本篇文章共有 </span>
+        <span class="post-count">598字</span>
+      </span>
+    </span>
+    &nbsp; | &nbsp;
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长大约 </span>
+        <span class="post-count">2分钟~</span>
+      </span>
+    </span>
+</div>
     </div>
     
 
@@ -403,7 +487,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hepn.github.io/2019/12/31/Markdown%E7%AC%94%E8%AE%B0/" data-id="ck5brh0bq000bbgwi9gu8hk03"
+      <a data-url="https://hepn.github.io/2019/12/31/Markdown%E7%AC%94%E8%AE%B0/" data-id="ck5dpr1a4000684wieuaza4py"
         class="article-share-link">分享一下</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag">个人学习笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" rel="tag">基本语法</a></li></ul>
@@ -430,7 +514,7 @@
 </div>
 
       
-        <canvas id="code_rain_canvas" width="1440" height="300"></canvas>
+        <canvas id="code_rain_canvas" width="1440" height="200"></canvas>
         <script type="text/javascript" src="/js/code_rain.js">
         <style>
           #code_rain_canvas {
@@ -451,7 +535,7 @@
     <ul class="list-inline">
       <li>
         &copy;
-        2019-2020
+        2020
         Hep
       </li>
       <li>
@@ -460,10 +544,27 @@
     </ul>
     <ul class="list-inline">
       <li>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <script>
+        var now = new Date(); 
+        function createtime() { 
+        var grt= new Date("01/02/2020 13:16:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "已经存活了 "+dnum+" 天"; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒 " + "……\(> <)/"; 
+         } 
+        setInterval("createtime()",250);
+        </script>
         
         
         <ul class="list-inline">
-  <li>总共 <span id="busuanzi_value_site_pv"></span>人次访问.</li>
+  <li>总共有 <span id="busuanzi_value_site_pv"></span>人次访问.</li>
   <li>您是Hepn Blog的第 <span id="busuanzi_value_site_uv"></span>个小伙伴</span></li>
 </ul>
         
@@ -507,10 +608,6 @@
     
     <li class="nav-item">
       <a class="nav-item-link" href="/tags">标签</a>
-    </li>
-    
-    <li class="nav-item">
-      <a class="nav-item-link" href="http://shenyu-vip.lofter.com" target="_blank" rel="noopener">摄影</a>
     </li>
     
     <li class="nav-item">
